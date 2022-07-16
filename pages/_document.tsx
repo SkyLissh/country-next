@@ -1,5 +1,4 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import Topbar from "components/Topbar";
 
 export default function Document() {
 	return (
@@ -22,7 +21,7 @@ export default function Document() {
 					rel="stylesheet"
 				></link>
 			</Head>
-			<body className="bg-gray-100">
+			<body className="bg-gray-100 dark:bg-midnight-200">
 				<Main />
 				<NextScript />
 			</body>

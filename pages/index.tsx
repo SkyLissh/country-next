@@ -19,18 +19,18 @@ export default function Home() {
 			<Topbar />
 			<form
 				onSubmit={onSubmit}
-				className="container mx-auto mt-8 px-4 md:flex md:justify-between md:items-center md:px-0"
+				className="container mx-auto my-14 px-4 md:flex md:justify-between md:items-center md:px-0"
 			>
 				<Search />
 				<Filter />
 			</form>
 
-			<section className="container mx-auto mt-8 px-10 md:px-0 md:grid md:gap-y-16 md:gap-x-8 md:grid-cols-auto-fill">
+			<ul className="container mx-auto px-10 md:px-0 md:grid md:gap-y-16 md:gap-x-8 md:grid-cols-auto-fill">
 				<Card />
 				<Card />
 				<Card />
 				<Card />
-			</section>
+			</ul>
 		</>
 	);
 }

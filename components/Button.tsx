@@ -12,7 +12,7 @@ export default function Button({ children, title, type = "button", onClick }: Pr
 			type={type}
 			title={title}
 			onClick={onClick}
-			className="bg-purple-400 text-white font-bold p-3 rounded-full shadow-lg"
+			className="bg-blue-500 text-white font-bold p-3 rounded-full shadow-lg"
 		>
 			{children}
 		</button>

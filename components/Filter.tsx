@@ -11,7 +11,7 @@ export default function Filter({ onChange }: Props) {
 				defaultValue="default"
 				title="Filter by region"
 				onChange={(e) => onChange?.(e.target.value)}
-				className="mt-4 appearance-none w-44 py-5 px-4 rounded-lg shadow-lg border border-gray-300 focus:outline-none focus:border-purple-500 md:m-0"
+				className="dark:bg-midnight-100 dark:text-slate-100 mt-4 appearance-none w-44 py-5 px-4 rounded-lg shadow-lg border border-gray-300 dark:border-midnight-50 focus:outline-none focus:border-blue-500 dark:focus:border-blue-500 md:m-0"
 			>
 				<option value="default" disabled>
 					Filter By Region
@@ -26,7 +26,7 @@ export default function Filter({ onChange }: Props) {
 			<span className="absolute inset-y-0 right-0 pr-2 flex items-center">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					className="h-6 w-6 text-purple-500"
+					className="h-6 w-6 text-blue-500"
 					fill="none"
 					viewBox="0 0 24 24"
 					stroke="currentColor"

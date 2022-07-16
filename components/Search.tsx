@@ -8,7 +8,7 @@ export default function Search({ onChange }: Props) {
 	return (
 		<label className="relative md:basis-2/5">
 			<input
-				className="w-full py-5 px-4 rounded-lg shadow-lg border border-gray-300 placeholder:text-slate-500 focus:outline-none focus:border-purple-500"
+				className="w-full py-5 px-4 rounded-lg shadow-lg dark:text-slate-100 dark:bg-midnight-100 border border-gray-300 dark:border-midnight-50 placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:border-blue-500 dark:focus:border-blue-500"
 				type="text"
 				onChange={(e) => onChange?.(e.target.value)}
 				placeholder="Search for a country..."

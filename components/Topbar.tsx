@@ -2,9 +2,11 @@ import Button from "components/Button";
 
 export default function Topbar() {
 	return (
-		<header className="bg-white shadow-lg p-4">
+		<header className="bg-white shadow-lg p-6 dark:bg-midnight-100">
 			<div className="container flex items-center justify-between md:mx-auto">
-				<h1 className="text-2xl font-extrabold">Where in the world?</h1>
+				<h1 className="text-2xl font-extrabold dark:text-slate-100">
+					Where in the world?
+				</h1>
 				<Button title="Toggle Theme">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
