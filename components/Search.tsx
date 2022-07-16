@@ -6,7 +6,7 @@ type Props = {
 
 export default function Search({ onChange }: Props) {
 	return (
-		<label className="relative">
+		<label className="relative md:basis-2/5">
 			<input
 				className="w-full py-5 px-4 rounded-lg shadow-lg border border-gray-300 placeholder:text-slate-500 focus:outline-none focus:border-purple-500"
 				type="text"

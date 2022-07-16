@@ -9,8 +9,9 @@ export default function Filter({ onChange }: Props) {
 		<label className="relative">
 			<select
 				defaultValue="default"
+				title="Filter by region"
 				onChange={(e) => onChange?.(e.target.value)}
-				className="mt-4 appearance-none w-44 py-5 px-4 rounded-lg shadow-lg border border-gray-300 focus:outline-none focus:border-purple-500"
+				className="mt-4 appearance-none w-44 py-5 px-4 rounded-lg shadow-lg border border-gray-300 focus:outline-none focus:border-purple-500 md:m-0"
 			>
 				<option value="default" disabled>
 					Filter By Region
@@ -22,7 +23,7 @@ export default function Filter({ onChange }: Props) {
 				))}
 			</select>
 
-			<span className="absolute inset-y-0 right-0 pr-2">
+			<span className="absolute inset-y-0 right-0 pr-2 flex items-center">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					className="h-6 w-6 text-purple-500"
