@@ -9,7 +9,7 @@ export default interface Country {
 
 	continent: string;
 	region: string;
-	subRegion: string;
+	subregion: string;
 
 	currencies: Currency[];
 	languages: Language[];
