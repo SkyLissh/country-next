@@ -15,7 +15,7 @@ export default function Topbar() {
 	});
 
 	return (
-		<header className="bg-white shadow-lg p-6 dark:bg-midnight-100 transition-colors ease-in duration-300">
+		<header className="bg-white shadow-lg p-6 dark:bg-midnight-100">
 			<div className="container flex items-center justify-between md:mx-auto">
 				<h1 className="text-2xl font-extrabold dark:text-slate-100">
 					Where in the world?

@@ -21,7 +21,7 @@ export default function Document() {
 					rel="stylesheet"
 				></link>
 			</Head>
-			<body className="bg-gray-100 dark:bg-midnight-200 transition-colors ease-in duration-300">
+			<body className="bg-gray-100 dark:bg-midnight-200">
 				<Main />
 				<NextScript />
 			</body>

@@ -1,5 +1,5 @@
 import { GetServerSideProps } from "next";
-import { FormEvent, useEffect, useState } from "react";
+import { useState } from "react";
 
 import Head from "components/Head";
 import Topbar from "components/Topbar";
@@ -75,7 +75,7 @@ export default function Home({ data, error }: Props) {
 				{countries.map((country) => (
 					<Card key={country.name} country={country} />
 				))}
-				{error && <li>{error}</li>}
+				{error !== "" ? <li>{error}</li> : null}
 			</ul>
 		</>
 	);

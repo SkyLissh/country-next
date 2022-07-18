@@ -8,7 +8,7 @@ type Props = {
 
 export default function Card({ country }: Props) {
 	return (
-		<li className="bg-white dark:bg-midnight-100 dark:text-slate-100 mb-10 rounded-lg shadow-lg transition-colors ease-in duration-300 border border-gray-300 dark:border-midnight-50 focus:outline-none focus:border-blue-500 dark:focus:border-blue-500 hover:border-blue-500 dark:hover:border-blue-500 hover:cursor-pointer">
+		<li className="bg-white dark:bg-midnight-100 dark:text-slate-100 mb-10 rounded-lg shadow-lg border border-gray-300 dark:border-midnight-50 focus:outline-none focus:border-blue-500 dark:focus:border-blue-500 hover:border-blue-500 dark:hover:border-blue-500 hover:cursor-pointer">
 			<div className="h-44 relative">
 				<Image
 					className="object-cover rounded-t-lg w-full"
