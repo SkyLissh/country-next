@@ -93,7 +93,7 @@ export default function Info({ country }: Props) {
 						<p className="font-semibold">Border Countries:</p>
 
 						<div className="my-6 grid gap-x-4 gap-y-4 grid-cols-3">
-							{country.borders.map((border) => (
+							{country.borders?.map((border) => (
 								<p
 									key={border}
 									className="inline-block w-26 text-center bg-white dark:bg-midnight-100 rounded-sm shadow-sm py-1 text-sm font-semibold border border-gray-300 dark:border-midnight-50"

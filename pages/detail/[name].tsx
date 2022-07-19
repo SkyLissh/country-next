@@ -24,7 +24,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
 
 	try {
 		const res = await fetch(`${settings.countryAPI}/name/${name}`);
-		console.log(res.status);
 
 		if (!res.ok) {
 			throw new Error(res.statusText);

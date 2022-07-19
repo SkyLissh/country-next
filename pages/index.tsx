@@ -1,4 +1,4 @@
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import { useState } from "react";
 
 import Head from "components/Head";
@@ -16,7 +16,7 @@ type Props = {
 	error: string;
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
 	let data: Country[] = [];
 	let errorFetch: string = "";
 

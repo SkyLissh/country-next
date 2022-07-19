@@ -14,7 +14,7 @@ export default interface Country {
 	currencies: Currency[];
 	languages: Language[];
 
-	borders: string[];
+	borders?: string[];
 	flags: Flag;
 }
 
