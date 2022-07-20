@@ -29,4 +29,4 @@ Users should be able to:
   = [TailwindCSS](https://tailwindcss.com) - CSS Framework
 - Mobile-first workflow
 
-![DesktopPreview](https://country.skylissh.me/desktop-preview.png)
+![DesktopPreview](https://country.skylissh.me/desktop-preview.jpg)
