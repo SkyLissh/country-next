@@ -8,53 +8,41 @@ import Search from "components/Search";
 import Filter from "components/Filter";
 import Card from "components/Card";
 
-import Country from "models/country";
-import settings from "utils/settings";
+import fetchCountries, { CountryResponse } from "utils/fetchCountries";
 
-type Props = {
-	data: Country[];
-	error: string;
-};
+export const getStaticProps: GetStaticProps<CountryResponse> = async () => {
+	const { data, error } = await fetchCountries("/all");
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-	let data: Country[] = [];
-	let errorFetch: string = "";
-
-	try {
-		const res = await fetch(`${settings.countryAPI}/all`);
-
-		if (!res.ok) {
-			throw new Error(res.statusText);
-		}
-
-		data = (await res.json()) as Country[];
-	} catch (error) {
-		errorFetch = (error as Error).message;
-	}
 	return {
 		props: {
 			data,
-			error: errorFetch
+			error
 		}
 	};
 };
 
-export default function Home({ data, error }: Props) {
+export default function Home({ data, error }: CountryResponse) {
 	const [countries, setCountries] = useState(data);
 	const [filter, setFilter] = useState("");
 
 	function handleSearch(value: string) {
 		setCountries(
-			data
-				.filter((country) => country.region.toLowerCase().includes(filter.toLowerCase()))
-				.filter((country) => country.name.toLowerCase().includes(value.toLowerCase()))
+			data &&
+				data
+					.filter((country) =>
+						country.region.toLowerCase().includes(filter.toLowerCase())
+					)
+					.filter((country) => country.name.toLowerCase().includes(value.toLowerCase()))
 		);
 	}
 
 	function handleFilter(value: string) {
 		setFilter(value);
 		setCountries(
-			data.filter((country) => country.region.toLowerCase().includes(value.toLowerCase()))
+			data &&
+				data.filter((country) =>
+					country.region.toLowerCase().includes(value.toLowerCase())
+				)
 		);
 	}
 
@@ -72,10 +60,10 @@ export default function Home({ data, error }: Props) {
 			</form>
 
 			<ul className="container mx-auto px-10 md:px-0 md:grid md:gap-y-16 md:gap-x-8 md:grid-cols-auto-fill">
-				{countries.map((country) => (
+				{countries?.map((country) => (
 					<Card key={country.name} country={country} />
 				))}
-				{error !== "" ? <li>{error}</li> : null}
+				{error && <li>{error.message}</li>}
 			</ul>
 		</>
 	);
