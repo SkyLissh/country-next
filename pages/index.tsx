@@ -51,20 +51,22 @@ export default function Home({ data, error }: CountryResponse) {
 			<Head title="Country API - Home" />
 
 			<Topbar />
-			<form
-				onSubmit={(e) => e.preventDefault()}
-				className="container mx-auto my-14 px-4 md:flex md:justify-between md:items-center md:px-0"
-			>
-				<Search onChange={handleSearch} />
-				<Filter onChange={handleFilter} />
-			</form>
+			<main className="container mx-auto">
+				<form
+					onSubmit={(e) => e.preventDefault()}
+					className="my-14 px-4 md:flex md:justify-between md:items-center md:px-0"
+				>
+					<Search onChange={handleSearch} />
+					<Filter onChange={handleFilter} />
+				</form>
 
-			<ul className="container mx-auto px-10 md:px-0 md:grid md:gap-y-16 md:gap-x-8 md:grid-cols-auto-fill">
-				{countries?.map((country) => (
-					<Card key={country.name} country={country} />
-				))}
-				{error && <li>{error.message}</li>}
-			</ul>
+				<ul className="px-10 md:px-0 md:grid md:gap-y-16 md:gap-x-8 md:grid-cols-auto-fill">
+					{countries?.map((country) => (
+						<Card key={country.name} country={country} />
+					))}
+					{error && <li>{error.message}</li>}
+				</ul>
+			</main>
 		</>
 	);
 }

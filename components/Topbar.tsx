@@ -15,7 +15,7 @@ export default function Topbar() {
 		}
 
 		setMounted(true);
-	});
+	}, [isDarkMode]);
 
 	return (
 		<header className="bg-white shadow-lg p-6 dark:bg-midnight-100">

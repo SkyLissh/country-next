@@ -80,7 +80,7 @@ export default function Info({ country }: Props) {
 
 							<p>
 								<span className="font-semibold">Currencies: </span>
-								{country.currencies.map((currency) => currency.name).join(", ")}
+								{country.currencies?.map((currency) => currency.name).join(", ")}
 							</p>
 
 							<p>

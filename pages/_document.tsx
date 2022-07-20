@@ -4,7 +4,6 @@ export default function Document() {
 	return (
 		<Html lang="en">
 			<Head>
-				<meta charSet="UTF-8" />
 				<link rel="icon" href="/favicon.ico" />
 
 				<meta name="author" content="SkyLissh" />

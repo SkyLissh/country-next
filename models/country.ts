@@ -11,7 +11,7 @@ export default interface Country {
 	region: string;
 	subregion: string;
 
-	currencies: Currency[];
+	currencies?: Currency[];
 	languages: Language[];
 
 	borders?: string[];
