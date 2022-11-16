@@ -18,7 +18,7 @@ Users should be able to:
 ### 🔗 Links
 
 - Solution URL: [Repository](https://github.com/skylissh/country-next)
-- Live Site URL: [Country API](https://country.skylissh.me)
+- Live Site URL: [Country API](https://country.skylissh.live)
 
 ## ✏️ My process
 
@@ -29,4 +29,4 @@ Users should be able to:
   = [TailwindCSS](https://tailwindcss.com) - CSS Framework
 - Mobile-first workflow
 
-![DesktopPreview](https://country.skylissh.me/desktop-preview.jpg)
+![DesktopPreview](https://country.skylissh.live/desktop-preview.jpg)
