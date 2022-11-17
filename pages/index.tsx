@@ -10,6 +10,7 @@ import Filter from "components/Filter";
 import CountryList from "components/CountryList";
 
 import fetchCountries, { CountryResponse } from "utils/fetchCountries";
+import Country from "models/country";
 
 export const getStaticProps: GetStaticProps<CountryResponse> = async () => {
 	const { data, error } = await fetchCountries("/all");
@@ -22,9 +23,15 @@ export const getStaticProps: GetStaticProps<CountryResponse> = async () => {
 	};
 };
 
-export default function Home({ data, error }: CountryResponse) {
+export default function Home({ data: initialData, error }: CountryResponse) {
+	const [data, setData] = useState(initialData);
 	const [countries, setCountries] = useState(data);
 	const [filter, setFilter] = useState("");
+
+	function onHydrate(data: Country[] | null) {
+		setData(data);
+		setCountries(data);
+	}
 
 	function handleSearch(value: string) {
 		setCountries(
@@ -63,9 +70,12 @@ export default function Home({ data, error }: CountryResponse) {
 
 				{countries && (
 					<SWRConfig
-						value={{ fallback: { "/all": { data, error } }, fetcher: fetchCountries }}
+						value={{
+							fallback: { "/all": { data: countries, error } },
+							fetcher: fetchCountries
+						}}
 					>
-						<CountryList />
+						<CountryList countries={countries} onHydrate={onHydrate} />
 					</SWRConfig>
 				)}
 				{error && <li>{error.message}</li>}
