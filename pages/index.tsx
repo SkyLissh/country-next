@@ -1,12 +1,13 @@
 import { GetStaticProps } from "next";
 import { useState } from "react";
+import { SWRConfig } from "swr";
 
 import Head from "components/Head";
 import Topbar from "components/Topbar";
 
 import Search from "components/Search";
 import Filter from "components/Filter";
-import Card from "components/Card";
+import CountryList from "components/CountryList";
 
 import fetchCountries, { CountryResponse } from "utils/fetchCountries";
 
@@ -15,7 +16,7 @@ export const getStaticProps: GetStaticProps<CountryResponse> = async () => {
 
 	return {
 		props: {
-			data,
+			data: data && data.slice(0, 20),
 			error
 		}
 	};
@@ -60,12 +61,14 @@ export default function Home({ data, error }: CountryResponse) {
 					<Filter onChange={handleFilter} />
 				</form>
 
-				<ul className="px-10 md:px-0 md:grid md:gap-y-16 md:gap-x-8 md:grid-cols-auto-fill">
-					{countries?.map((country) => (
-						<Card key={country.name} country={country} />
-					))}
-					{error && <li>{error.message}</li>}
-				</ul>
+				{countries && (
+					<SWRConfig
+						value={{ fallback: { "/all": { data, error } }, fetcher: fetchCountries }}
+					>
+						<CountryList />
+					</SWRConfig>
+				)}
+				{error && <li>{error.message}</li>}
 			</main>
 		</>
 	);

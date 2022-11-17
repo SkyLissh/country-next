@@ -1,5 +1,5 @@
+import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/router";
 
 import Button from "components/Button";
 
@@ -10,12 +10,13 @@ type Props = {
 };
 
 export default function Info({ country }: Props) {
-	const router = useRouter();
-
 	return (
 		<>
 			<div className="container mx-auto px-4 my-10 w-full xl:px-0">
-				<Button title="Back" onClick={router.back}>
+				<Link
+					href="/"
+					className="bg-blue-500 text-white font-bold p-3 rounded-full shadow-lg inline-block"
+				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						className="h-6 w-6"
@@ -30,15 +31,16 @@ export default function Info({ country }: Props) {
 							d="M10 19l-7-7m0 0l7-7m-7 7h18"
 						/>
 					</svg>
-				</Button>
+				</Link>
 			</div>
 			<main className="container mx-auto px-4 flex flex-wrap items-center justify-center xl:px-0 md:flex-nowrap">
 				<div className="h-60 w-full relative shadow-xl lg:h-[50vh] md:mr-20">
 					<Image
+						className="object-cover rounded-lg"
 						src={country.flags.svg}
 						alt={country.name}
-						layout="fill"
-						className="object-cover rounded-lg"
+						sizes="100%"
+						fill
 					/>
 				</div>
 				<section className="w-full mt-8 dark:text-slate-100">
