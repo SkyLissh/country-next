@@ -1,8 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 
 import Head from "components/Head";
-import Topbar from "components/Topbar";
 import Info from "components/Info";
+import Topbar from "components/Topbar";
 
 import fetchCountries, { CountryResponse as Props } from "utils/fetchCountries";
 
@@ -32,8 +32,8 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) 
 
 	return {
 		props: {
-			data,
-			error
+			...(data && { data }),
+			...(error && { error })
 		}
 	};
 };

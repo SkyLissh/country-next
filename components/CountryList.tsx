@@ -1,17 +1,17 @@
-import { useEffect } from "react";
 import useSWR from "swr";
 
 import Card from "components/Card";
 import Country from "models/country";
+import { useEffect } from "react";
 import { CountryResponse } from "utils/fetchCountries";
 
 type Props = {
-	countries: Country[] | null;
-	onHydrate: (data: Country[] | null) => void;
+	countries: Country[];
+	onHydrate: (data?: Country[]) => void;
 };
 
 export default function CountryList({ countries, onHydrate }: Props) {
-	const { data } = useSWR<CountryResponse>("/all");
+	const { data, error } = useSWR<CountryResponse>("/all");
 
 	useEffect(() => {
 		onHydrate(data!.data);
