@@ -13,11 +13,9 @@ export default function Filter({ onChange }: Props) {
 				onChange={(e) => onChange?.(e.target.value)}
 				className="dark:bg-midnight-100 dark:text-slate-100 mt-4 appearance-none w-44 py-5 px-4 rounded-lg shadow-lg border border-gray-300 dark:border-midnight-50 focus:outline-none focus:border-blue-500 dark:focus:border-blue-500 md:m-0"
 			>
-				<option value="default" disabled>
-					Filter By Region
-				</option>
+				<option value="default">All Regions</option>
 				{options.map((option) => (
-					<option key={option} value={option}>
+					<option key={option} value={option.toLowerCase()}>
 						{option}
 					</option>
 				))}

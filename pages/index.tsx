@@ -59,10 +59,14 @@ export default function Home({ data: initialData, error }: CountryResponse) {
 	}
 
 	function handleFilter(value: string) {
-		setFilter(value);
-		const filtered = data?.filter((country) =>
-			country.region.toLowerCase().includes(value.toLowerCase())
-		);
+		setFilter(value !== "default" ? value : "");
+		let filtered = data;
+
+		if (value !== "default") {
+			filtered = data?.filter((country) =>
+				country.region.toLowerCase().includes(value.toLowerCase())
+			);
+		}
 
 		setFilterData(filtered);
 		setCountries(filtered?.slice(0, 20));
@@ -75,12 +79,6 @@ export default function Home({ data: initialData, error }: CountryResponse) {
 
 			<Topbar />
 			<main className="container mx-auto">
-				<code className="text-white font-medium pr-4">
-					{JSON.stringify(countries?.length)}
-				</code>
-				<code className="text-white font-medium">
-					{JSON.stringify(filterData?.length)}
-				</code>
 				<form
 					onSubmit={(e) => e.preventDefault()}
 					className="my-14 px-4 md:flex md:justify-between md:items-center md:px-0"
